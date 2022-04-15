@@ -1,6 +1,6 @@
 # SUDOKU COURSEWORK #
 
-# CHOICE OF ALGORITHM #
+## CHOICE OF ALGORITHM ##
 
 The AI algorithm that I decided to use was a backtracking search which is a combination of a depth-first search and constraint propagation. 
 I chose this mainly due to the fact that it replicates the way in which a human would go about solving a sudoku,
@@ -10,14 +10,14 @@ meaning that the time and space complexity is greatly reduced from that of a sta
 By using constraint propagation it also means that I can include well documented human sudoku solving techniques in my code,
 to further reduce the domains and therefore the number of nodes expanded.
 
-# IMPLEMENTATION OF ALGORITHM #
+## IMPLEMENTATION OF ALGORITHM ##
 
 X = {R0C0, R1C0, … , R8C8} : set of variables of the sudoku grid
 D = {1,2,3,4,5,6,7,8,9} : set of domains specifying the values each variable can take
 C = a number may only be repeated once in each row, column, and three by three grid; naked subset rule ; unique candidate rule
 : set of constraints that specifies the values that the variables are allowed to have collectively
 
-# PARTIAL STATE #
+## PARTIAL STATE ##
 
 Once the sudoku is passed in from the testing script it is passed into the PartialSudokuState class in order to create a partial state. 
 A partial state is a state (an assignment of values to all or some of the variables) which does not have all of the variables assigned. 
@@ -33,7 +33,7 @@ which applies the more complicated constraints of naked subsets and unique candi
 Both of these methods greatly reduce the size of the domains meaning that there are much fewer nodes expanded and therefore
 the sudokus are solved much faster.
 
-# BACKTRACKING #
+## BACKTRACKING ##
 
 Once the partial state has been generated and its completeness and consistency have been assessed then the partial state is passed into
 the depth-first search function. This function firstly picks the index of the square it is going to guess and then it orders the values
@@ -42,7 +42,7 @@ from the domain of that index that it will guess with. It then creates a deep st
 the domains of all the other variables according to the constraints. This new state is then assessed: if it is not consistent then it backtracks,
 otherwise it keeps going until the solution is reached or no solution is able to be found.
 
-# OPTIMISATION #
+## OPTIMISATION ##
 
 Initially my code was not solving the hard puzzles in a reasonable period of time and so I had to optimise the code
 to reduce the number of nodes being expanded. I optimised particularly by using heuristics and further constraints.
@@ -56,7 +56,7 @@ such as naked (double and triple) subsets and unique candidates.
 I implemented the sole candidate rule, which is commented out in the “constrain_values” method,
 however I decided to remove it as there were not enough instances of the sole candidate rule being needed and therefore it actually slowed down the code.
 
-# REFERENCES #
+## REFERENCES ##
 
 Kristanix.com. 2021. Sudoku Solving Techniques. [online] Available at: <https://www.kristanix.com/sudokuepic/sudoku-solving-techniques.php> [Accessed 10 December 2021].
 way, H., 2021. How to sort two lists (which reference each other) in the exact same way. [online] Stack Overflow. Available at: <https://stackoverflow.com/questions/9764298/how-to-sort-two-lists-which-reference-each-other-in-the-exact-same-way> [Accessed 14 December 2021].
